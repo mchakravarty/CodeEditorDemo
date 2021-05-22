@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct CodeEditorDemoApp: App {
-    var body: some Scene {
-        DocumentGroup(newDocument: CodeEditorDemoDocument()) { file in
-            ContentView(document: file.$document)
-        }
+  var body: some Scene {
+    DocumentGroup(newDocument: CodeEditorDemoDocument()) { file in
+      ContentView(document: file.$document)
     }
+  }
 }
