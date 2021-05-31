@@ -23,17 +23,19 @@ struct MessageEntry: View {
   var body: some View {
     VStack(spacing: 16) {
 
-      Text("Enter a message to display in the code view")
+//      Text("Enter a message to display in the code view")
 
       Form {
 
-        Section(header: Text("Brief")){
-          Picker("Catgeory", selection: $category) {
+        Section(header: Text("Enter a message to display in the code view")){
+
+          Picker("", selection: $category) {
             Text("Live").tag(Message.Category.live)
-            Text("error").tag(Message.Category.error)
-            Text("warning").tag(Message.Category.warning)
-            Text("informational").tag(Message.Category.informational)
+            Text("Error").tag(Message.Category.error)
+            Text("Warning").tag(Message.Category.warning)
+            Text("Informational").tag(Message.Category.informational)
           }
+          .padding([.top, .bottom], 10)
 
           TextField("Summary", text: $summary)
 
