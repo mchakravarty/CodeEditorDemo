@@ -23,8 +23,6 @@ struct MessageEntry: View {
   var body: some View {
     VStack(spacing: 16) {
 
-//      Text("Enter a message to display in the code view")
-
       Form {
 
         Section(header: Text("Enter a message to display in the code view")){
