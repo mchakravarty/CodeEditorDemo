@@ -86,17 +86,35 @@ struct ContentView: View {
 
   @State private var messages:         Set<Located<Message>> = Set ()
   @State private var showMessageEntry: Bool                  = false
+  @State private var showMinimap:      Bool                  = true
 
   var body: some View {
     VStack {
 
-      CodeEditor(text: $document.text, messages: $messages, language: .swift)
+      CodeEditor(text: $document.text,
+                 messages: $messages,
+                 language: .swift,
+                 layout: CodeEditor.LayoutConfiguration(showMinimap: showMinimap))
         .environment(\.codeEditorTheme,
                      colorScheme == .dark ? Theme.defaultDark : Theme.defaultLight)
 
-      Button("Add Message") { showMessageEntry = true }
+      HStack {
+
+        Button("Add Message") { showMessageEntry = true }
         .sheet(isPresented: $showMessageEntry){ MessageEntry(messages: $messages) }
-        .padding(EdgeInsets(top: 8, leading: 0, bottom: 16, trailing: 0))
+
+        #if os(macOS)
+
+        Spacer()
+
+        Toggle("Show Minimap", isOn: $showMinimap)
+          .toggleStyle(CheckboxToggleStyle())
+          .padding([.top, .bottom])
+
+        #endif
+
+      }
+      .padding(EdgeInsets(top: 0, leading: 32, bottom: 8, trailing: 32))
     }
 
   }
