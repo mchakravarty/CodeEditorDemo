@@ -84,7 +84,7 @@ struct ContentView: View {
 
   @Environment(\.colorScheme) private var colorScheme: ColorScheme
 
-  @SceneStorage("editLocation") private var editLocation: CodeEditor.Location = CodeEditor.Location()
+  @SceneStorage("editPosition") private var editPosition: CodeEditor.Position = CodeEditor.Position()
 
   @State private var messages:         Set<Located<Message>> = Set ()
   @State private var showMessageEntry: Bool                  = false
@@ -94,7 +94,7 @@ struct ContentView: View {
     VStack {
 
       CodeEditor(text: $document.text,
-                 location: $editLocation,
+                 position: $editPosition,
                  messages: $messages,
                  language: .swift,
                  layout: CodeEditor.LayoutConfiguration(showMinimap: showMinimap))
