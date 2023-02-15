@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+
+import LanguageSupport
 import CodeEditorView
 
 
 struct MessageEntry: View {
   @Binding var messages: Set<Located<Message>>
 
-  @Environment(\.presentationMode) var presentationMode
+  @Environment(\.presentationMode) private var presentationMode
 
   @State private var category:  Message.Category = .error
   @State private var summary:   String           = ""
@@ -23,9 +25,11 @@ struct MessageEntry: View {
   var body: some View {
     VStack(spacing: 16) {
 
+      Text("Enter a message to display in the code view")
+
       Form {
 
-        Section(header: Text("Enter a message to display in the code view")){
+        Section(header: Text("Essentials")) {
 
           Picker("", selection: $category) {
             Text("Live").tag(Message.Category.live)
@@ -33,19 +37,28 @@ struct MessageEntry: View {
             Text("Warning").tag(Message.Category.warning)
             Text("Informational").tag(Message.Category.informational)
           }
-          .padding([.top, .bottom], 10)
+          .padding([.top, .bottom], 4)
 
           TextField("Summary", text: $summary)
 
+          #if os(iOS)
           HStack {
-            Text("Line:")
-            TextField("1", text: $lineStr)
-            Text("Column:")
-            TextField("0", text: $columnStr)
+            TextField("Line", text: $lineStr)
+            TextField("Column", text: $columnStr)
           }
+          #elseif os(macOS)
+          TextField("Line", text: $lineStr)
+          TextField("Column", text: $columnStr)
+          #endif
+          Text("Line and column numbers start at 1.")
+            .font(.system(.footnote))
+          #if os(macOS)
+            .padding([.bottom], 8)
+          #endif
 
         }
-        Section(header: Text("Detailed message")){
+
+        Section(header: Text("Detailed message")) {
           TextEditor(text: $message)
             .frame(height: 100)
         }
@@ -63,7 +76,7 @@ struct MessageEntry: View {
           let finalSummary = summary.count == 0 ? "Summary" : summary,
               line         = Int(lineStr) ?? 1,
               column       = Int(columnStr) ?? 0
-          messages.insert(Located(location: Location(file: "main.swift", line: line, column: column),
+          messages.insert(Located(location: FileLocation(file: "main.swift", line: line, column: column),
                                   entity: Message(category: category,
                                                   length: 1,
                                                   summary: finalSummary,
@@ -96,7 +109,7 @@ struct ContentView: View {
       CodeEditor(text: $document.text,
                  position: $editPosition,
                  messages: $messages,
-                 language: .swift,
+                 language: .swift(),
                  layout: CodeEditor.LayoutConfiguration(showMinimap: showMinimap))
         .environment(\.codeEditorTheme,
                      colorScheme == .dark ? Theme.defaultDark : Theme.defaultLight)
@@ -104,7 +117,7 @@ struct ContentView: View {
       HStack {
 
         Button("Add Message") { showMessageEntry = true }
-        .sheet(isPresented: $showMessageEntry){ MessageEntry(messages: $messages) }
+          .sheet(isPresented: $showMessageEntry){ MessageEntry(messages: $messages) }
 
         #if os(macOS)
 
@@ -121,6 +134,23 @@ struct ContentView: View {
     }
 
   }
+}
+
+// Mark: -
+// Mark: Previews
+
+struct MessageEntry_Previews: PreviewProvider {
+
+  struct Container: View {
+    @State var messages: Set<Located<Message>> = Set()
+
+    var body: some View {
+      MessageEntry(messages: $messages)
+        .preferredColorScheme(.dark)
+    }
+  }
+
+  static var previews: some View { Container() }
 }
 
 struct ContentView_Previews: PreviewProvider {
