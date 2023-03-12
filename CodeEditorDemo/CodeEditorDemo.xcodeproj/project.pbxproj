@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E72B9CB829BE2BBC00FA6B91 /* LanguageSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E72B9CB729BE2BBC00FA6B91 /* LanguageSupport */; };
+		E72B9CBA29BE2BC300FA6B91 /* LanguageSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E72B9CB929BE2BC300FA6B91 /* LanguageSupport */; };
 		E7C36F482658450B0026A5AE /* CodeEditorDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F342658450A0026A5AE /* CodeEditorDemoApp.swift */; };
 		E7C36F492658450B0026A5AE /* CodeEditorDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F342658450A0026A5AE /* CodeEditorDemoApp.swift */; };
 		E7C36F4A2658450B0026A5AE /* CodeEditorDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F352658450A0026A5AE /* CodeEditorDemoDocument.swift */; };
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E72B9CB829BE2BBC00FA6B91 /* LanguageSupport in Frameworks */,
 				E7C36F5A265845370026A5AE /* CodeEditorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E72B9CBA29BE2BC300FA6B91 /* LanguageSupport in Frameworks */,
 				E7C36F5D265845430026A5AE /* CodeEditorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +128,7 @@
 			name = "CodeEditorDemo (iOS)";
 			packageProductDependencies = (
 				E7C36F59265845370026A5AE /* CodeEditorView */,
+				E72B9CB729BE2BBC00FA6B91 /* LanguageSupport */,
 			);
 			productName = "CodeEditorDemo (iOS)";
 			productReference = E7C36F3C2658450B0026A5AE /* CodeEditorDemo.app */;
@@ -144,6 +149,7 @@
 			name = "CodeEditorDemo (macOS)";
 			packageProductDependencies = (
 				E7C36F5C265845430026A5AE /* CodeEditorView */,
+				E72B9CB929BE2BC300FA6B91 /* LanguageSupport */,
 			);
 			productName = "CodeEditorDemo (macOS)";
 			productReference = E7C36F442658450B0026A5AE /* CodeEditorDemo.app */;
@@ -487,6 +493,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E72B9CB729BE2BBC00FA6B91 /* LanguageSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7C36F58265845370026A5AE /* XCRemoteSwiftPackageReference "CodeEditorView" */;
+			productName = LanguageSupport;
+		};
+		E72B9CB929BE2BC300FA6B91 /* LanguageSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LanguageSupport;
+		};
 		E7C36F59265845370026A5AE /* CodeEditorView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E7C36F58265845370026A5AE /* XCRemoteSwiftPackageReference "CodeEditorView" */;
