@@ -124,6 +124,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				E72B9CBE29BE32C100FA6B91 /* PBXTargetDependency */,
+				E72B9CBC29BE32BB00FA6B91 /* PBXTargetDependency */,
 			);
 			name = "CodeEditorDemo (iOS)";
 			packageProductDependencies = (
@@ -145,6 +147,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				E72B9CC229BE32D800FA6B91 /* PBXTargetDependency */,
+				E72B9CC029BE32D300FA6B91 /* PBXTargetDependency */,
 			);
 			name = "CodeEditorDemo (macOS)";
 			packageProductDependencies = (
@@ -235,6 +239,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E72B9CBC29BE32BB00FA6B91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E72B9CBB29BE32BB00FA6B91 /* LanguageSupport */;
+		};
+		E72B9CBE29BE32C100FA6B91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E72B9CBD29BE32C100FA6B91 /* CodeEditorView */;
+		};
+		E72B9CC029BE32D300FA6B91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E72B9CBF29BE32D300FA6B91 /* CodeEditorView */;
+		};
+		E72B9CC229BE32D800FA6B91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E72B9CC129BE32D800FA6B91 /* LanguageSupport */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E7C36F502658450B0026A5AE /* Debug */ = {
@@ -499,6 +522,22 @@
 			productName = LanguageSupport;
 		};
 		E72B9CB929BE2BC300FA6B91 /* LanguageSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LanguageSupport;
+		};
+		E72B9CBB29BE32BB00FA6B91 /* LanguageSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LanguageSupport;
+		};
+		E72B9CBD29BE32C100FA6B91 /* CodeEditorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CodeEditorView;
+		};
+		E72B9CBF29BE32D300FA6B91 /* CodeEditorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CodeEditorView;
+		};
+		E72B9CC129BE32D800FA6B91 /* LanguageSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LanguageSupport;
 		};
