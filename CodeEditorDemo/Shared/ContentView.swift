@@ -102,6 +102,7 @@ struct ContentView: View {
   @State private var messages:         Set<Located<Message>> = Set ()
   @State private var showMessageEntry: Bool                  = false
   @State private var showMinimap:      Bool                  = true
+  @State private var wrapText:         Bool                  = true
 
   var body: some View {
     VStack {
@@ -110,7 +111,7 @@ struct ContentView: View {
                  position: $editPosition,
                  messages: $messages,
                  language: .swift(),
-                 layout: CodeEditor.LayoutConfiguration(showMinimap: showMinimap))
+                 layout: CodeEditor.LayoutConfiguration(showMinimap: showMinimap, wrapText: wrapText))
         .environment(\.codeEditorTheme,
                      colorScheme == .dark ? Theme.defaultDark : Theme.defaultLight)
 
@@ -119,15 +120,23 @@ struct ContentView: View {
         Button("Add Message") { showMessageEntry = true }
           .sheet(isPresented: $showMessageEntry){ MessageEntry(messages: $messages) }
 
-        #if os(macOS)
-
         Spacer()
 
+        #if os(macOS)
+
         Toggle("Show Minimap", isOn: $showMinimap)
-          .toggleStyle(CheckboxToggleStyle())
-          .padding([.top, .bottom])
+          .toggleStyle(.checkbox)
+          .padding()
 
         #endif
+
+        Toggle("Wrap Text", isOn: $wrapText)
+        #if os(macOS)
+          .toggleStyle(.checkbox)
+        #else
+          .toggleStyle(.button)
+        #endif
+          .padding()
 
       }
       .padding(EdgeInsets(top: 0, leading: 32, bottom: 8, trailing: 32))
