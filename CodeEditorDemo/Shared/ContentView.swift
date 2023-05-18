@@ -75,8 +75,8 @@ struct MessageEntry: View {
 
           let finalSummary = summary.count == 0 ? "Summary" : summary,
               line         = Int(lineStr) ?? 1,
-              column       = Int(columnStr) ?? 0
-          messages.insert(Located(location: FileLocation(file: "main.swift", line: line, column: column),
+              column       = Int(columnStr) ?? 1
+          messages.insert(Located(location: FileLocation(file: "main.swift", oneBasedLine: line, column: column),
                                   entity: Message(category: category,
                                                   length: 1,
                                                   summary: finalSummary,
