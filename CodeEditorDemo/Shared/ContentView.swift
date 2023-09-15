@@ -12,7 +12,7 @@ import CodeEditorView
 
 
 struct MessageEntry: View {
-  @Binding var messages: Set<Located<Message>>
+  @Binding var messages: Set<TextLocated<Message>>
 
   @Environment(\.presentationMode) private var presentationMode
 
@@ -76,7 +76,7 @@ struct MessageEntry: View {
           let finalSummary = summary.count == 0 ? "Summary" : summary,
               line         = Int(lineStr) ?? 1,
               column       = Int(columnStr) ?? 1
-          messages.insert(Located(location: FileLocation(file: "main.swift", oneBasedLine: line, column: column),
+          messages.insert(TextLocated(location: TextLocation(oneBasedLine: line, column: column),
                                   entity: Message(category: category,
                                                   length: 1,
                                                   summary: finalSummary,
@@ -99,10 +99,10 @@ struct ContentView: View {
 
   @SceneStorage("editPosition") private var editPosition: CodeEditor.Position = CodeEditor.Position()
 
-  @State private var messages:         Set<Located<Message>> = Set ()
-  @State private var showMessageEntry: Bool                  = false
-  @State private var showMinimap:      Bool                  = true
-  @State private var wrapText:         Bool                  = true
+  @State private var messages:         Set<TextLocated<Message>> = Set ()
+  @State private var showMessageEntry: Bool                      = false
+  @State private var showMinimap:      Bool                      = true
+  @State private var wrapText:         Bool                      = true
 
   var body: some View {
     VStack {
@@ -151,7 +151,7 @@ struct ContentView: View {
 struct MessageEntry_Previews: PreviewProvider {
 
   struct Container: View {
-    @State var messages: Set<Located<Message>> = Set()
+    @State var messages: Set<TextLocated<Message>> = Set()
 
     var body: some View {
       MessageEntry(messages: $messages)
