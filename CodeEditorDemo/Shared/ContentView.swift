@@ -104,6 +104,8 @@ struct ContentView: View {
   @State private var showMinimap:      Bool                      = true
   @State private var wrapText:         Bool                      = true
 
+  @FocusState private var editorIsFocused: Bool
+
   var body: some View {
     VStack {
 
@@ -114,6 +116,7 @@ struct ContentView: View {
                  layout: CodeEditor.LayoutConfiguration(showMinimap: showMinimap, wrapText: wrapText))
         .environment(\.codeEditorTheme,
                      colorScheme == .dark ? Theme.defaultDark : Theme.defaultLight)
+        .focused($editorIsFocused)
 
       HStack {
 
@@ -140,6 +143,7 @@ struct ContentView: View {
 
       }
       .padding(EdgeInsets(top: 0, leading: 32, bottom: 8, trailing: 32))
+      .onAppear{ editorIsFocused =  true }
     }
 
   }
