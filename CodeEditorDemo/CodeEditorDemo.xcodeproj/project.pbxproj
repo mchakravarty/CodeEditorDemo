@@ -188,6 +188,7 @@
 			mainGroup = E7C36F2E2658450A0026A5AE;
 			packageReferences = (
 				E7C36F58265845370026A5AE /* XCRemoteSwiftPackageReference "CodeEditorView" */,
+				E789648C2AC366B200F4C94B /* XCRemoteSwiftPackageReference "Rearrange" */,
 			);
 			productRefGroup = E7C36F3D2658450B0026A5AE /* Products */;
 			projectDirPath = "";
@@ -510,6 +511,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E789648C2AC366B200F4C94B /* XCRemoteSwiftPackageReference "Rearrange" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChimeHQ/Rearrange";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.0;
+			};
+		};
 		E7C36F58265845370026A5AE /* XCRemoteSwiftPackageReference "CodeEditorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mchakravarty/CodeEditorView.git";
