@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E72B9CB829BE2BBC00FA6B91 /* LanguageSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E72B9CB729BE2BBC00FA6B91 /* LanguageSupport */; };
-		E72B9CBA29BE2BC300FA6B91 /* LanguageSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E72B9CB929BE2BC300FA6B91 /* LanguageSupport */; };
 		E7C36F482658450B0026A5AE /* CodeEditorDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F342658450A0026A5AE /* CodeEditorDemoApp.swift */; };
 		E7C36F492658450B0026A5AE /* CodeEditorDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F342658450A0026A5AE /* CodeEditorDemoApp.swift */; };
 		E7C36F4A2658450B0026A5AE /* CodeEditorDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F352658450A0026A5AE /* CodeEditorDemoDocument.swift */; };
@@ -47,7 +46,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E72B9CBA29BE2BC300FA6B91 /* LanguageSupport in Frameworks */,
 				E7C36F5D265845430026A5AE /* CodeEditorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,7 +151,6 @@
 			name = "CodeEditorDemo (macOS)";
 			packageProductDependencies = (
 				E7C36F5C265845430026A5AE /* CodeEditorView */,
-				E72B9CB929BE2BC300FA6B91 /* LanguageSupport */,
 			);
 			productName = "CodeEditorDemo (macOS)";
 			productReference = E7C36F442658450B0026A5AE /* CodeEditorDemo.app */;
@@ -387,7 +384,7 @@
 				DEVELOPMENT_TEAM = CW7SX798PS;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,7 +406,7 @@
 				DEVELOPMENT_TEAM = CW7SX798PS;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +439,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.applicative.CodeEditorDemo;
 				PRODUCT_NAME = CodeEditorDemo;
 				SDKROOT = macosx;
@@ -469,7 +466,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.applicative.CodeEditorDemo;
 				PRODUCT_NAME = CodeEditorDemo;
 				SDKROOT = macosx;
@@ -524,10 +521,6 @@
 		E72B9CB729BE2BBC00FA6B91 /* LanguageSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E7C36F58265845370026A5AE /* XCRemoteSwiftPackageReference "CodeEditorView" */;
-			productName = LanguageSupport;
-		};
-		E72B9CB929BE2BC300FA6B91 /* LanguageSupport */ = {
-			isa = XCSwiftPackageProductDependency;
 			productName = LanguageSupport;
 		};
 		E72B9CBB29BE32BB00FA6B91 /* LanguageSupport */ = {

@@ -125,20 +125,20 @@ struct ContentView: View {
 
         Spacer()
 
-        #if os(macOS)
-
         Toggle("Show Minimap", isOn: $showMinimap)
+#if os(macOS)
           .toggleStyle(.checkbox)
+#else
+          .toggleStyle(.button)
+#endif
           .padding()
 
-        #endif
-
         Toggle("Wrap Text", isOn: $wrapText)
-        #if os(macOS)
+#if os(macOS)
           .toggleStyle(.checkbox)
-        #else
+#else
           .toggleStyle(.button)
-        #endif
+#endif
           .padding()
 
       }
