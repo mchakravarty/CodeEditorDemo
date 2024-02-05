@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E72B9CB829BE2BBC00FA6B91 /* LanguageSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E72B9CB729BE2BBC00FA6B91 /* LanguageSupport */; };
+		E78E16CF2B71288F003484F5 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = E78E16CE2B71288F003484F5 /* RealityKitContent */; };
+		E78E16D82B712890003484F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E78E16D72B712890003484F5 /* Preview Assets.xcassets */; };
+		E78E16EB2B7128BC003484F5 /* CodeEditorView in Frameworks */ = {isa = PBXBuildFile; productRef = E78E16EA2B7128BC003484F5 /* CodeEditorView */; };
+		E78E16ED2B7128C2003484F5 /* LanguageSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E78E16EC2B7128C2003484F5 /* LanguageSupport */; };
+		E78E16F22B7129F5003484F5 /* CodeEditorDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F352658450A0026A5AE /* CodeEditorDemoDocument.swift */; };
+		E78E16F42B7130A5003484F5 /* CodeEditorDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F342658450A0026A5AE /* CodeEditorDemoApp.swift */; };
+		E78E16F52B7130A9003484F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F362658450A0026A5AE /* ContentView.swift */; };
+		E78E16F62B71312B003484F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7C36F372658450B0026A5AE /* Assets.xcassets */; };
 		E7C36F482658450B0026A5AE /* CodeEditorDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F342658450A0026A5AE /* CodeEditorDemoApp.swift */; };
 		E7C36F492658450B0026A5AE /* CodeEditorDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F342658450A0026A5AE /* CodeEditorDemoApp.swift */; };
 		E7C36F4A2658450B0026A5AE /* CodeEditorDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C36F352658450A0026A5AE /* CodeEditorDemoDocument.swift */; };
@@ -21,6 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E78E16CA2B71288F003484F5 /* CodeEditorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeEditorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E78E16CD2B71288F003484F5 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		E78E16D42B712890003484F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E78E16D72B712890003484F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E78E16D92B712890003484F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7C36F342658450A0026A5AE /* CodeEditorDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEditorDemoApp.swift; sourceTree = "<group>"; };
 		E7C36F352658450A0026A5AE /* CodeEditorDemoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEditorDemoDocument.swift; sourceTree = "<group>"; };
 		E7C36F362658450A0026A5AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +46,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E78E16C72B71288F003484F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E78E16CF2B71288F003484F5 /* RealityKitContent in Frameworks */,
+				E78E16ED2B7128C2003484F5 /* LanguageSupport in Frameworks */,
+				E78E16EB2B7128BC003484F5 /* CodeEditorView in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E7C36F392658450B0026A5AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,12 +76,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E78E16CB2B71288F003484F5 /* visionOS */ = {
+			isa = PBXGroup;
+			children = (
+				E78E16D42B712890003484F5 /* Assets.xcassets */,
+				E78E16D92B712890003484F5 /* Info.plist */,
+				E78E16D62B712890003484F5 /* Preview Content */,
+			);
+			path = visionOS;
+			sourceTree = "<group>";
+		};
+		E78E16CC2B71288F003484F5 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				E78E16CD2B71288F003484F5 /* RealityKitContent */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		E78E16D62B712890003484F5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E78E16D72B712890003484F5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		E7C36F2E2658450A0026A5AE = {
 			isa = PBXGroup;
 			children = (
 				E7C36F332658450A0026A5AE /* Shared */,
 				E7C36F3E2658450B0026A5AE /* iOS */,
 				E7C36F452658450B0026A5AE /* macOS */,
+				E78E16CB2B71288F003484F5 /* visionOS */,
+				E78E16CC2B71288F003484F5 /* Packages */,
 				E7C36F3D2658450B0026A5AE /* Products */,
 				E7C36F5B265845430026A5AE /* Frameworks */,
 			);
@@ -80,6 +131,7 @@
 			children = (
 				E7C36F3C2658450B0026A5AE /* CodeEditorDemo.app */,
 				E7C36F442658450B0026A5AE /* CodeEditorDemo.app */,
+				E78E16CA2B71288F003484F5 /* CodeEditorDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +163,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E78E16C92B71288F003484F5 /* CodeEditorDemo (visionOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E78E16E82B712890003484F5 /* Build configuration list for PBXNativeTarget "CodeEditorDemo (visionOS)" */;
+			buildPhases = (
+				E78E16C62B71288F003484F5 /* Sources */,
+				E78E16C72B71288F003484F5 /* Frameworks */,
+				E78E16C82B71288F003484F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E78E16F12B7129B1003484F5 /* PBXTargetDependency */,
+				E78E16EF2B7129AA003484F5 /* PBXTargetDependency */,
+			);
+			name = "CodeEditorDemo (visionOS)";
+			packageProductDependencies = (
+				E78E16CE2B71288F003484F5 /* RealityKitContent */,
+				E78E16EA2B7128BC003484F5 /* CodeEditorView */,
+				E78E16EC2B7128C2003484F5 /* LanguageSupport */,
+			);
+			productName = CodeEditorDemo;
+			productReference = E78E16CA2B71288F003484F5 /* CodeEditorDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E7C36F3B2658450B0026A5AE /* CodeEditorDemo (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7C36F522658450B0026A5AE /* Build configuration list for PBXNativeTarget "CodeEditorDemo (iOS)" */;
@@ -163,9 +239,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					E78E16C92B71288F003484F5 = {
+						CreatedOnToolsVersion = 15.2;
+					};
 					E7C36F3B2658450B0026A5AE = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -192,11 +271,21 @@
 			targets = (
 				E7C36F3B2658450B0026A5AE /* CodeEditorDemo (iOS) */,
 				E7C36F432658450B0026A5AE /* CodeEditorDemo (macOS) */,
+				E78E16C92B71288F003484F5 /* CodeEditorDemo (visionOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E78E16C82B71288F003484F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E78E16F62B71312B003484F5 /* Assets.xcassets in Resources */,
+				E78E16D82B712890003484F5 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E7C36F3A2658450B0026A5AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,6 +305,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E78E16C62B71288F003484F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E78E16F52B7130A9003484F5 /* ContentView.swift in Sources */,
+				E78E16F42B7130A5003484F5 /* CodeEditorDemoApp.swift in Sources */,
+				E78E16F22B7129F5003484F5 /* CodeEditorDemoDocument.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E7C36F382658450B0026A5AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,9 +354,81 @@
 			isa = PBXTargetDependency;
 			productRef = E72B9CC129BE32D800FA6B91 /* LanguageSupport */;
 		};
+		E78E16EF2B7129AA003484F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E78E16EE2B7129AA003484F5 /* CodeEditorView */;
+		};
+		E78E16F12B7129B1003484F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E78E16F02B7129B1003484F5 /* LanguageSupport */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		E78E16E42B712890003484F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"visionOS/Preview Content\"";
+				DEVELOPMENT_TEAM = CW7SX798PS;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = visionOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.applicative.CodeEditorDemo;
+				PRODUCT_NAME = CodeEditorDemo;
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		E78E16E52B712890003484F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"visionOS/Preview Content\"";
+				DEVELOPMENT_TEAM = CW7SX798PS;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = visionOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.applicative.CodeEditorDemo;
+				PRODUCT_NAME = CodeEditorDemo;
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
 		E7C36F502658450B0026A5AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -477,6 +648,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E78E16E82B712890003484F5 /* Build configuration list for PBXNativeTarget "CodeEditorDemo (visionOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E78E16E42B712890003484F5 /* Debug */,
+				E78E16E52B712890003484F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E7C36F322658450A0026A5AE /* Build configuration list for PBXProject "CodeEditorDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -537,6 +717,28 @@
 		};
 		E72B9CC129BE32D800FA6B91 /* LanguageSupport */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = LanguageSupport;
+		};
+		E78E16CE2B71288F003484F5 /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
+		};
+		E78E16EA2B7128BC003484F5 /* CodeEditorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CodeEditorView;
+		};
+		E78E16EC2B7128C2003484F5 /* LanguageSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LanguageSupport;
+		};
+		E78E16EE2B7129AA003484F5 /* CodeEditorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7C36F58265845370026A5AE /* XCRemoteSwiftPackageReference "CodeEditorView" */;
+			productName = CodeEditorView;
+		};
+		E78E16F02B7129B1003484F5 /* LanguageSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7C36F58265845370026A5AE /* XCRemoteSwiftPackageReference "CodeEditorView" */;
 			productName = LanguageSupport;
 		};
 		E7C36F59265845370026A5AE /* CodeEditorView */ = {

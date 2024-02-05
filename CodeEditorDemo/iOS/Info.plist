@@ -16,7 +16,7 @@
 				<string>public.swift-source</string>
 			</array>
 			<key>NSUbiquitousDocumentUserActivityType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).example-document</string>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).swift</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

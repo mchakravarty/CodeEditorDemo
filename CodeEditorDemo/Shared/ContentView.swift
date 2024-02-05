@@ -41,7 +41,7 @@ struct MessageEntry: View {
 
           TextField("Summary", text: $summary)
 
-          #if os(iOS)
+          #if os(iOS) || os(visionOS)
           HStack {
             TextField("Line", text: $lineStr)
             TextField("Column", text: $columnStr)
