@@ -97,7 +97,13 @@ struct ContentView: View {
 
   @Environment(\.colorScheme) private var colorScheme: ColorScheme
 
+  // NB: In visionOS (v1), an update (set) to a a scene storage variable is (sometimes) not immeditely visible (to a
+  //      get). This leads to flickering and similar issues.
+#if os(visionOS)
+  @State private var editPosition: CodeEditor.Position = CodeEditor.Position()
+#else
   @SceneStorage("editPosition") private var editPosition: CodeEditor.Position = CodeEditor.Position()
+#endif
 
   @State private var messages:         Set<TextLocated<Message>> = Set ()
   @State private var showMessageEntry: Bool                      = false
