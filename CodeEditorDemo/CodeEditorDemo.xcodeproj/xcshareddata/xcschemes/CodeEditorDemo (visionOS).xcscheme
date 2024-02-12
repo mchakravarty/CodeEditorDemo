@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E78E16C92B71288F003484F5"
-               BuildableName = "CodeEditorDemo (visionOS).app"
+               BuildableName = "CodeEditorDemo.app"
                BlueprintName = "CodeEditorDemo (visionOS)"
                ReferencedContainer = "container:CodeEditorDemo.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E78E16C92B71288F003484F5"
-            BuildableName = "CodeEditorDemo (visionOS).app"
+            BuildableName = "CodeEditorDemo.app"
             BlueprintName = "CodeEditorDemo (visionOS)"
             ReferencedContainer = "container:CodeEditorDemo.xcodeproj">
          </BuildableReference>
@@ -74,7 +74,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E78E16C92B71288F003484F5"
-            BuildableName = "CodeEditorDemo (visionOS).app"
+            BuildableName = "CodeEditorDemo.app"
             BlueprintName = "CodeEditorDemo (visionOS)"
             ReferencedContainer = "container:CodeEditorDemo.xcodeproj">
          </BuildableReference>
