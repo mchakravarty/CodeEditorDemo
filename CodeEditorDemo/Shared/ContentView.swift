@@ -73,7 +73,7 @@ struct MessageEntry: View {
 
         Button("Submit message"){
 
-          let finalSummary = summary.count == 0 ? "Summary" : summary,
+          let finalSummary = summary.isEmpty ? "Summary" : summary,
               line         = Int(lineStr) ?? 1,
               column       = Int(columnStr) ?? 1
           messages.insert(TextLocated(location: TextLocation(oneBasedLine: line, column: column),
