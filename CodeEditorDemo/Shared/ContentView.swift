@@ -80,7 +80,7 @@ struct MessageEntry: View {
                                   entity: Message(category: category,
                                                   length: 1,
                                                   summary: finalSummary,
-                                                  description: NSAttributedString(string: message))))
+                                                  description: AttributedString(message))))
           presentationMode.wrappedValue.dismiss()
 
         }
