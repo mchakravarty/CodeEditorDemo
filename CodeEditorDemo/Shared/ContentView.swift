@@ -92,6 +92,22 @@ struct MessageEntry: View {
   }
 }
 
+enum Language: Hashable {
+  case swift
+  case haskell
+
+  // Be careful not to create multiple configurations for one language, but with different `UUID`s.
+  static private var swiftConf   = LanguageConfiguration.swift()
+  static private var haskellConf = LanguageConfiguration.haskell()
+
+  var configuration: LanguageConfiguration {
+    switch self {
+    case .swift:   Language.swiftConf
+    case .haskell: Language.haskellConf
+    }
+  }
+}
+
 struct ContentView: View {
   @Binding var document: CodeEditorDemoDocument
 
@@ -106,6 +122,8 @@ struct ContentView: View {
 #endif
 
   @State private var messages:         Set<TextLocated<Message>> = Set ()
+  @State private var language:         Language                  = .swift
+  @State private var theme:            ColorScheme?              = nil
   @State private var showMessageEntry: Bool                      = false
   @State private var showMinimap:      Bool                      = true
   @State private var wrapText:         Bool                      = true
@@ -118,10 +136,10 @@ struct ContentView: View {
       CodeEditor(text: $document.text,
                  position: $editPosition,
                  messages: $messages,
-                 language: .swift(),
+                 language: language.configuration,
                  layout: CodeEditor.LayoutConfiguration(showMinimap: showMinimap, wrapText: wrapText))
         .environment(\.codeEditorTheme,
-                     colorScheme == .dark ? Theme.defaultDark : Theme.defaultLight)
+                     (theme ?? colorScheme) == .dark ? Theme.defaultDark : Theme.defaultLight)
         .focused($editorIsFocused)
 
       HStack {
@@ -130,6 +148,21 @@ struct ContentView: View {
           .sheet(isPresented: $showMessageEntry){ MessageEntry(messages: $messages) }
 
         Spacer()
+
+        Picker("", selection: $language) {
+          Text("Swift").tag(Language.swift)
+          Text("Haskell").tag(Language.haskell)
+        }
+        .fixedSize()
+        .padding()
+
+        Picker("", selection: $theme) {
+          Text("Default").tag(nil as ColorScheme?)
+          Text("Light").tag(ColorScheme.light as ColorScheme?)
+          Text("Dark").tag(ColorScheme.dark as ColorScheme?)
+        }
+        .fixedSize()
+        .padding()
 
         Toggle("Show Minimap", isOn: $showMinimap)
 #if os(macOS)
