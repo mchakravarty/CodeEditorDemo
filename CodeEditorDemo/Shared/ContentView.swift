@@ -96,14 +96,10 @@ enum Language: Hashable {
   case swift
   case haskell
 
-  // Be careful not to create multiple configurations for one language, but with different `UUID`s.
-  static private var swiftConf   = LanguageConfiguration.swift()
-  static private var haskellConf = LanguageConfiguration.haskell()
-
   var configuration: LanguageConfiguration {
     switch self {
-    case .swift:   Language.swiftConf
-    case .haskell: Language.haskellConf
+    case .swift:   .swift()
+    case .haskell: .haskell()
     }
   }
 }
