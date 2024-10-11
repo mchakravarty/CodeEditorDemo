@@ -114,7 +114,7 @@ struct ContentView: View {
   //     problems in views that take multiple bindings as arguments.
   @State private var editPosition: CodeEditor.Position = .init()
 
-  @SceneStorage("editPosition") private var editPositionPersistent: CodeEditor.Position = .init()
+  @SceneStorage("editPosition") private var editPositionStorage: CodeEditor.Position?
 
   @State private var messages:         Set<TextLocated<Message>> = Set ()
   @State private var language:         Language                  = .swift
@@ -179,11 +179,13 @@ struct ContentView: View {
       .padding(EdgeInsets(top: 0, leading: 32, bottom: 8, trailing: 32))
       .onAppear{ editorIsFocused =  true }
     }
-    .onAppear {
-      editPosition = editPositionPersistent
+    .onChange(of: editPositionStorage == nil, initial: true) {
+      if let editPositionStorage {
+        editPosition = editPositionStorage
+      }
     }
     .onChange(of: editPosition) {
-      editPositionPersistent = editPosition
+      editPositionStorage = editPosition
     }
 
   }
