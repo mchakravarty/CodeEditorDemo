@@ -109,13 +109,12 @@ struct ContentView: View {
 
   @Environment(\.colorScheme) private var colorScheme: ColorScheme
 
-  // NB: In visionOS (v1), an update (set) to a a scene storage variable is (sometimes) not immeditely visible (to a
-  //      get). This leads to flickering and similar issues.
-#if os(visionOS)
-  @State private var editPosition: CodeEditor.Position = CodeEditor.Position()
-#else
-  @SceneStorage("editPosition") private var editPosition: CodeEditor.Position = CodeEditor.Position()
-#endif
+  // NB: Writes to a @SceneStorage backed variable are somestimes (always?) not availabe in the update cycle where
+  //     the update occurs, but only one cycle later. That can lead to back and forth bouncing values and other
+  //     problems in views that take multiple bindings as arguments.
+  @State private var editPosition: CodeEditor.Position = .init()
+
+  @SceneStorage("editPosition") private var editPositionPersistent: CodeEditor.Position = .init()
 
   @State private var messages:         Set<TextLocated<Message>> = Set ()
   @State private var language:         Language                  = .swift
@@ -179,6 +178,12 @@ struct ContentView: View {
       }
       .padding(EdgeInsets(top: 0, leading: 32, bottom: 8, trailing: 32))
       .onAppear{ editorIsFocused =  true }
+    }
+    .onAppear {
+      editPosition = editPositionPersistent
+    }
+    .onChange(of: editPosition) {
+      editPositionPersistent = editPosition
     }
 
   }
