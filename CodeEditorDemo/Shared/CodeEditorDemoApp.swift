@@ -7,11 +7,19 @@
 
 import SwiftUI
 
+import CodeEditorView
+
+
 @main
 struct CodeEditorDemoApp: App {
+
   var body: some Scene {
+
     DocumentGroup(newDocument: CodeEditorDemoDocument()) { file in
       ContentView(document: file.$document)
+    }
+    .commands {
+      CodeEditingCommands()
     }
   }
 }
