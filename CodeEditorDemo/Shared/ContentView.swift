@@ -116,17 +116,22 @@ struct ContentView: View {
 
   @SceneStorage("editPosition") private var editPositionStorage: CodeEditor.Position?
 
-  @State private var messages:         Set<TextLocated<Message>> = Set ()
-  @State private var language:         Language                  = .swift
-  @State private var theme:            ColorScheme?              = nil
-  @State private var showMessageEntry: Bool                      = false
-  @State private var showMinimap:      Bool                      = true
-  @State private var wrapText:         Bool                      = true
+  @State private var messages:         Set<TextLocated<Message>>                      = Set ()
+  @State private var language:         Language                                       = .swift
+  @State private var theme:            ColorScheme?                                   = nil
+  @State private var showMessageEntry: Bool                                           = false
+  @State private var showMinimap:      Bool                                           = true
+  @State private var wrapText:         Bool                                           = true
+  @State private var indentPreference: CodeEditor.IndentationConfiguration.Preference = .preferSpaces
+  @State private var tabWidth:         Int                                            = 2
+  @State private var indentWidth:      Int                                            = 2
+  @State private var tabKey:           CodeEditor.IndentationConfiguration.TabKey     = .identsInWhitespace
+  @State private var indentOnReturn:   Bool                                           = true
 
   @FocusState private var editorIsFocused: Bool
 
   var body: some View {
-    VStack {
+    VStack(spacing: 0) {
 
       CodeEditor(text: $document.text,
                  position: $editPosition,
@@ -136,46 +141,97 @@ struct ContentView: View {
                      (theme ?? colorScheme) == .dark ? Theme.defaultDark : Theme.defaultLight)
         .environment(\.codeEditorLayoutConfiguration,
                       CodeEditor.LayoutConfiguration(showMinimap: showMinimap, wrapText: wrapText))
+        .environment(\.codeEditorIndentationConfiguration,
+                      CodeEditor.IndentationConfiguration(preference: indentPreference,
+                                                          tabWidth: tabWidth,
+                                                          indentWidth: indentWidth,
+                                                          tabKey: tabKey,
+                                                          indentOnReturn: indentOnReturn))
         .focused($editorIsFocused)
 
-      HStack {
+      VStack(alignment: .leading, spacing: 0) {
 
-        Button("Add Message") { showMessageEntry = true }
-          .sheet(isPresented: $showMessageEntry){ MessageEntry(messages: $messages) }
+        HStack {
 
-        Spacer()
+          Button("Add Message") { showMessageEntry = true }
+            .sheet(isPresented: $showMessageEntry){ MessageEntry(messages: $messages) }
 
-        Picker("", selection: $language) {
-          Text("Swift").tag(Language.swift)
-          Text("Haskell").tag(Language.haskell)
-        }
-        .fixedSize()
-        .padding()
+          Spacer()
 
-        Picker("", selection: $theme) {
-          Text("Default").tag(nil as ColorScheme?)
-          Text("Light").tag(ColorScheme.light as ColorScheme?)
-          Text("Dark").tag(ColorScheme.dark as ColorScheme?)
-        }
-        .fixedSize()
-        .padding()
-
-        Toggle("Show Minimap", isOn: $showMinimap)
-#if os(macOS)
-          .toggleStyle(.checkbox)
-#else
-          .toggleStyle(.button)
-#endif
+          Picker("", selection: $language) {
+            Text("Swift").tag(Language.swift)
+            Text("Haskell").tag(Language.haskell)
+          }
+          .fixedSize()
           .padding()
 
-        Toggle("Wrap Text", isOn: $wrapText)
-#if os(macOS)
-          .toggleStyle(.checkbox)
-#else
-          .toggleStyle(.button)
-#endif
+          Picker("", selection: $theme) {
+            Text("Default").tag(nil as ColorScheme?)
+            Text("Light").tag(ColorScheme.light as ColorScheme?)
+            Text("Dark").tag(ColorScheme.dark as ColorScheme?)
+          }
+          .fixedSize()
           .padding()
 
+          Toggle("Show Minimap", isOn: $showMinimap)
+#if os(macOS)
+            .toggleStyle(.checkbox)
+#else
+            .toggleStyle(.button)
+#endif
+            .padding()
+
+          Toggle("Wrap Text", isOn: $wrapText)
+#if os(macOS)
+            .toggleStyle(.checkbox)
+#else
+            .toggleStyle(.button)
+#endif
+            .padding()
+
+        }
+
+        HStack {
+
+          Picker("", selection: $indentPreference) {
+            Text("Prefer Spaces").tag(CodeEditor.IndentationConfiguration.Preference.preferSpaces)
+            Text("Prefer Tabs").tag(CodeEditor.IndentationConfiguration.Preference.preferTabs)
+          }
+          .fixedSize()
+          .padding()
+
+          LabeledContent {
+            TextField("", value: $tabWidth, format: .number)
+              .frame(width: 30)
+          } label: {
+            Text("Tab Width:")
+          }
+
+          LabeledContent {
+            TextField("", value: $indentWidth, format: .number)
+              .frame(width: 30)
+          } label: {
+            Text("Indent Width:")
+          }
+
+          Picker("", selection: $tabKey) {
+            Text("Indents in leading whitespace").tag(CodeEditor.IndentationConfiguration.TabKey.identsInWhitespace)
+            Text("Indents always").tag(CodeEditor.IndentationConfiguration.TabKey.indentsAlways)
+            Text("Inserts tab character").tag(CodeEditor.IndentationConfiguration.TabKey.insertsTab)
+          }
+          .fixedSize()
+          .padding()
+
+          Toggle("Indent after return", isOn: $indentOnReturn)
+#if os(macOS)
+            .toggleStyle(.checkbox)
+#else
+            .toggleStyle(.button)
+#endif
+            .padding()
+
+
+        }
       }
       .padding(EdgeInsets(top: 0, leading: 32, bottom: 8, trailing: 32))
       .onAppear{ editorIsFocused =  true }
