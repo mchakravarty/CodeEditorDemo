@@ -131,10 +131,11 @@ struct ContentView: View {
       CodeEditor(text: $document.text,
                  position: $editPosition,
                  messages: $messages,
-                 language: language.configuration,
-                 layout: CodeEditor.LayoutConfiguration(showMinimap: showMinimap, wrapText: wrapText))
+                 language: language.configuration)
         .environment(\.codeEditorTheme,
                      (theme ?? colorScheme) == .dark ? Theme.defaultDark : Theme.defaultLight)
+        .environment(\.codeEditorLayoutConfiguration,
+                      CodeEditor.LayoutConfiguration(showMinimap: showMinimap, wrapText: wrapText))
         .focused($editorIsFocused)
 
       HStack {
